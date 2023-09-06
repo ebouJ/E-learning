@@ -33,6 +33,9 @@ module.exports = {
           '100': '#524870',
           '200': '#381D74',
         },
+        blogcode: {
+          '100': '#FFD700',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -81,14 +84,31 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
-    },
-    screens: {
-      ...defaultTheme.screens,
-      '3xl': '1628px',
+      screens: {
+        ...defaultTheme.screens,
+        '3xl': '1628px',
+      },
+      typography: ({ theme }: any) => ({
+        blog: {
+          css: {
+            '--tw-prose-a-text': theme('colors.blue[100]'),
+            '--tw-prose-headings': theme('colors.white'),
+            '--tw-prose-blockquote': theme('colors.mediumpurple[200]'),
+            '--tw-prose-links': theme('colors.blue[400]'),
+            '--tw-prose-bold': theme('colors.white'),
+            '--tw-prose-hr': theme('colors.white'),
+            '--tw-prose-code': theme('colors.blogcode[100]'),
+            '--tw-prose-quotes': theme('colors.gray[300]'),
+            '--tw-prose-quote-borders': theme('colors.gray[500]'),
+            '--tw-prose-counters': theme('colors.gray[400]'),
+          },
+        },
+      }),
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+  ],
 };
-
-// sm: 400px
-// md: 768px

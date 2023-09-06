@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { NAV_LINK } from '@/types';
+import Link from 'next/link';
 
 interface INavBarLinks {
   links: NAV_LINK[];
@@ -18,13 +19,15 @@ const NavBarLinks: React.FC<INavBarLinks> = ({ links, className }) => {
   return (
     <NavigationMenu className={cn('hidden md:flex', className)}>
       <NavigationMenuList className={className}>
-        {links.map(({ id, name }) => {
+        {links.map(({ id, name, path }) => {
           return (
-            <NavigationMenuItem key={id}>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                {name}
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            <Link href={path} key={id}>
+              <NavigationMenuItem>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {name}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </Link>
           );
         })}
       </NavigationMenuList>

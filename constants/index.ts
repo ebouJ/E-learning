@@ -59,3 +59,26 @@ export const SELLING_POINTS: {
     body: 'Engage with a community of passionate learners and experts. Get your queries addressed, share your projects, and grow together',
   },
 ];
+
+export const FRAMEWORKS = [
+  {
+    value: 'all',
+    label: 'All',
+  },
+  {
+    value: 'next_js',
+    label: 'Next.js',
+  },
+  {
+    value: 'spring_boot',
+    label: 'Spring Boot',
+  },
+  {
+    value: 'express_js',
+    label: 'Express JS',
+  },
+  {
+    value: 'fast_api',
+    label: 'Fast API',
+  },
+];
