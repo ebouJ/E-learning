@@ -29,6 +29,8 @@ export type Course = {
   instructor_id: string;
   image_url: string;
   category: string;
+  project_id: string;
+  project_name: string;
   demo_video: Video;
   sections: Section[];
   description: string;

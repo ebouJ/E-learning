@@ -12,9 +12,10 @@ import Link from 'next/link';
 
 interface CourseCardProps {
   course: Course;
+  isInstructor?: boolean;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+const CourseCard: React.FC<CourseCardProps> = ({ course, isInstructor }) => {
   const totalLessons: number = course.sections.reduce(
     (acc, cur) => acc + cur.sub_sections.length,
     0
@@ -63,7 +64,11 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         </CardContent>
         <CardFooter className='flex justify-between'>
           <Rating rating={course.average_rating} isReadOnly />
-          <Button variant={'courseAppBtn'}>Enroll Now</Button>
+          {isInstructor ? (
+            <span>{course.course_name}</span>
+          ) : (
+            <Button variant={'courseAppBtn'}>Enroll Now</Button>
+          )}
         </CardFooter>
       </Card>
     </Link>

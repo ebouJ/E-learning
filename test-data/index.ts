@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { SubSection, Section, Course, Video } from '@/types';
+import { PROJECTS } from '@/constants';
 
 const generateVideo = (course_id: string, section_id?: string): Video => ({
   video_id: faker.string.uuid(),
@@ -35,6 +36,8 @@ const generateCourse = (): Course => {
     course_id,
     course_name: faker.company.catchPhrase(),
     instructor_id: faker.string.uuid(),
+    project_id: faker.string.uuid(),
+    project_name: faker.helpers.arrayElement(PROJECTS).value,
     demo_video: generateVideo(course_id),
     category: faker.helpers.arrayElement([
       'Design',
@@ -56,3 +59,16 @@ const generateCourse = (): Course => {
 
 export const generateCourses = (numCourses: number): Course[] =>
   Array.from({ length: numCourses }, generateCourse);
+
+function generateFakeSale() {
+  return {
+    id: faker.string.uuid(),
+    name: `${faker.person.firstName()} ${faker.person.lastName()}`,
+    email: faker.internet.email(),
+    amount: faker.finance.amount(),
+  };
+}
+
+export const generateFakeSales = (count: number) => {
+  return Array.from({ length: count }, generateFakeSale);
+};
