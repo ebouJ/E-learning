@@ -82,3 +82,19 @@ export const FRAMEWORKS = [
     label: 'Fast API',
   },
 ];
+
+// should be coming from the api
+export const PROJECTS = [
+  {
+    value: 'course_management_app',
+    label: 'Course Management App',
+  },
+  {
+    value: 'e_commerce',
+    label: 'E Commerce',
+  },
+  {
+    value: 'sports_league',
+    label: 'Sports League Management',
+  },
+];

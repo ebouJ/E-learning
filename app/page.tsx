@@ -7,6 +7,9 @@ import NavBar from '@/components/nav-bar/nav-bar';
 import SellingPoint from '@/components/selling-point/selling-point';
 import Testimonial from '@/components/testimonials/testimonial';
 import { NAV_BAR_ITEMS } from '@/constants';
+import { generateCourses } from '@/test-data';
+
+const courses = generateCourses(5);
 
 export default function Home() {
   return (
@@ -15,7 +18,7 @@ export default function Home() {
       <Hero />
       <div className='flex flex-col gap-5'>
         <CoursesTitle title='Popular' />
-        <Courses />
+        <Courses courses={courses} />
       </div>
       <SellingPoint />
       <Testimonial />
